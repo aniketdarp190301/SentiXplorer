@@ -44,3 +44,4 @@ vaderSentiment==3.3.2
 w3lib==1.22.0
 zope.interface==5.1.0
 youtube_transcript_api
+coverage
