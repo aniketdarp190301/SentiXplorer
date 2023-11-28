@@ -29,6 +29,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: Run Codecov
+        run: bash <(curl -s https://codecov.io/bash) -R "https://github.com/aniketdarp190301/SentiXplorer"
+        
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
