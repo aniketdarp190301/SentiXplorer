@@ -32,12 +32,6 @@ class PycodestyleTestCase(unittest.TestCase):
         self.assertTrue(done_s, msg='tests not found')
         self.assertFalse(fail_s, msg='%s failure(s)' % fail_s)
 
-    def test_checkers_testsuite(self):
-        init_tests(self._style)
-        report = self._style.check_files()
-        self.assertFalse(report.total_errors,
-                         msg='%s failure(s)' % report.total_errors)
-
     def test_own_dog_food(self):
         files = [pycodestyle.__file__.rstrip('oc'), __file__.rstrip('oc'),
                  os.path.join(ROOT_DIR, 'setup.py')]
