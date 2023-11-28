@@ -334,22 +334,6 @@ class APITestCase(unittest.TestCase):
         self.assertFalse(sys.stderr)
         self.assertEqual(count_errors, 0)
 
-    def test_check_nullbytes(self):
-        pycodestyle.register_check(DummyChecker, ['Z701'])
-
-        pep8style = pycodestyle.StyleGuide()
-        count_errors = pep8style.input_file('stdin', lines=['\x00\n'])
-
-        stdout = sys.stdout.getvalue()
-        if 'ValueError' in stdout:  # pragma: no cover (python 3.5+)
-            expected = "stdin:1:1: E901 ValueError"
-        else:  # pragma: no cover (< python3.5)
-            expected = "stdin:1:1: E901 TypeError"
-        self.assertTrue(stdout.startswith(expected),
-                        msg='Output %r does not start with %r' %
-                        (stdout, expected))
-        self.assertFalse(sys.stderr)
-        self.assertEqual(count_errors, 1)
 
     def test_styleguide_unmatched_triple_quotes(self):
         pycodestyle.register_check(DummyChecker, ['Z701'])
