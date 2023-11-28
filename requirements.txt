@@ -43,3 +43,4 @@ w3lib==1.22.0
 zope.interface==5.1.0
 youtube_transcript_api
 coverage==7.3.2
+black
